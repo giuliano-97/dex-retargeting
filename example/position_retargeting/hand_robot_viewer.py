@@ -65,6 +65,8 @@ class RobotHandDatasetSAPIENViewer(HandDatasetSAPIENViewer):
             urdf_path = Path(config.urdf_path)
             if "glb" not in urdf_path.stem:
                 urdf_path = str(urdf_path).replace(".urdf", "_glb.urdf")
+            else:
+                urdf_path = str(urdf_path)
             robot_urdf = urdf.URDF.load(str(urdf_path), add_dummy_free_joints=True, build_scene_graph=False)
             urdf_name = urdf_path.split("/")[-1]
             temp_dir = tempfile.mkdtemp(prefix="dex_retargeting-")
